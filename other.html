@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>     
+      #slave {
+        height: 25px;
+        width : 50px;
+        background-color: black;
+        position:absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slave">
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      var slave = $('#slave');
+      var offset = 5;
+      socket.on('command issued', function(command){
+        var pos = slave.position();
+        if(command === 'left'){
+          slave.css('left', pos.left - offset);
+        } else if(command === 'right'){
+          slave.css('left', pos.left + offset);
+        } else if (command === 'up'){
+          slave.css('top', pos.top - offset);
+        } else {
+          slave.css('top', pos.top + offset);
+        }
+      });
+    </script>
+  </body>
+</html>

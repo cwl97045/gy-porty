@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      
+      #left {
+        height:50px; width:100px;background-color: blue;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px; 
+      }
+      #right {
+        height:50px;
+        width:100px;
+        background-color: red;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px; 
+      }
+      #up {
+        height:50px;
+        width:100px;
+        background-color: yellow;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px; 
+      }
+      #down {
+        height:50px;
+        width:100px;
+        background-color: green;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px; 
+      }
+    </style>
+  </head>
+  <body>
+    <div id="left">
+      <p>Go Left</p>
+    </div>
+    <div id="right">
+      <p>Go Right</p>
+    </div>
+    <div id="up">
+      <p>Go Up </p>
+    </div>
+    <div id="down">
+      <p>Go Down</p>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      $('#left').click(function(){
+        console.log('Bam');
+        socket.emit('clicked', 'left');
+      });
+      $('#right').click(function(){
+        socket.emit('clicked', 'right');
+      });
+      $('#up').click(function(){
+        socket.emit('clicked', 'up');
+      });      
+      $('#down').click(function(){
+        socket.emit('clicked', 'down');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "jeopardy-server",
+  "version": "0.0.1",
+  "description": "Server for Curt",
+  "dependencies": {
+    "express": "^4.9.3",
+    "socket.io": "^1.1.0",
+    "socket.io-client" : "*"
+  }
+}
